@@ -20,6 +20,10 @@ and WHAT YOU SHOULD WRITE is the sayHi function that makes the code above work:
 
   // Code Here 
 
+  first = (array, cb) => {
+    cb(array[0])
+  }
+
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -34,6 +38,13 @@ first(names, function(firstName){
 
   //Code Here
 
+  last = (array, cb) => {
+      cb(array.pop())
+  }
+
+  // function last(array, cb) {
+  //   cb(array[array.length - 1]);
+  // }
 
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -45,6 +56,10 @@ last(names, function(lastName){
 // 3. Write a function called multiply that takes in three parameters: two numbers and a callback function.  Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 
   //Code Here
+
+multiply = (num1, num2, cb) => {
+  cb(num1 * num2)
+}
 
 
 multiply(4, 3, function(answer){
@@ -59,7 +74,15 @@ multiply(4, 3, function(answer){
 
   //Code Here 
 
-
+contains = (array, name, cb) => {
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] === name) {
+      cb(true)
+    } else {
+      cb(false)
+    }
+  }
+}
 
 
 contains(names, 'Colt', function(result){
