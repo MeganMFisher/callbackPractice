@@ -100,7 +100,18 @@ contains(names, 'Colt', function(result){
 
   //Code Here
 
+uniq = (array, cb) => {
+  let array2 = [];
+  let names2 = array.sort();
 
+  for(let i = 0; i < names2.length; i++) {
+    if(names2[i] !== names2[i + 1]) {
+      array2.push(names2[i])
+    }
+  }
+  return cb(array2)
+
+}  
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -110,7 +121,11 @@ uniq(names, function(uniqArr){
 // 6. Write a function called each that takes in an array of names and a callback function. For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 
     //Code Here 
-
+each = (names, cb) => {
+  for(let i = 0; i < names.length; i++) {
+    cb(names[i], i)
+  }
+}
 
 
 each(names, function(item, indice){
@@ -124,6 +139,13 @@ each(names, function(item, indice){
 
 // Code here
 
+getUserById = (users, id, cb) => {
+  for(let i = 0; i < users.length; i++) {
+    if(users[i].id === id) {
+      cb(users[i])
+    }
+  }
+}
 
 
 var users = [
